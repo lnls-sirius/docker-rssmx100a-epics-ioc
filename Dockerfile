@@ -1,4 +1,4 @@
-FROM lnls/epics-dist:debian-9.2
+FROM lnls/epics-dist:base-3.15-synapps-lnls-R1-0-0-debian-9.5
 
 ENV IOC_REPO rssmx100a-epics-ioc
 ENV BOOT_DIR iocrssmx100a
