@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   ioc:
-    image: dockerregistry.lnls-sirius.com.br/gas/${IOC_REPO}:${IOC_COMMIT}-${BASE_VERSION}-${DEBIAN_VERSION}
+    image: dockerregistry.lnls-sirius.com.br/gas/${IOC_REPO}:${IOC_COMMIT}-rc4-${BASE_VERSION}-${DEBIAN_VERSION}
     build:
       context: .
       dockerfile: Dockerfile
