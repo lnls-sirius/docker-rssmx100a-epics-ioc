@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  ioc:
+    image: dockerregistry.lnls-sirius.com.br/gas/${IOC_REPO}:${IOC_COMMIT}-${BASE_VERSION}-${DEBIAN_VERSION}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      labels:
+        org.opencontainers.image.revision: ${IOC_COMMIT}
+        org.opencontainers.image.source: https://github.com/${IOC_GROUP}/${IOC_REPO}.git
+      args:
+        BASE_VERSION: ${BASE_VERSION}
+        IOC_COMMIT: ${IOC_COMMIT}
+        DEBIAN_VERSION: ${DEBIAN_VERSION}
+        IOC_GROUP: ${IOC_GROUP}
+        IOC_REPO: ${IOC_REPO}
+        SYNAPPS_VERSION: ${SYNAPPS_VERSION}
