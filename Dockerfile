@@ -5,7 +5,7 @@ ARG IOC_GROUP
 ARG IOC_REPO
 ARG SYNAPPS_VERSION
 
-FROM lnls/epics-synapps:${BASE_VERSION}-${SYNAPPS_VERSION}-${DEBIAN_VERSION}
+FROM dockerregistry.lnls-sirius.com.br/gas/epics-synapps:base-3.15-synapps-lnls-R1-2-1-debian-9.13-2021-07-15
 ARG BASE_VERSION
 ARG DEBIAN_VERSION
 ARG IOC_COMMIT
