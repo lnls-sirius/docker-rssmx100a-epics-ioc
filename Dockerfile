@@ -259,4 +259,4 @@ RUN . /root/.bashrc
 
 WORKDIR /opt/epics/startup/ioc/${IOC_REPO}/iocBoot/${BOOT_DIR}
 
-# ENTRYPOINT ["./runProcServ.sh"]
+ENTRYPOINT ["./runProcServ.sh"]
