@@ -1,17 +1,33 @@
 version: "3.8"
+
+x-environment:
+  &default-labels
+  org.opencontainers.image.authors: ${AUTHOR}
+  org.opencontainers.image.created: ${BUILD_DATE_RFC339}
+  org.opencontainers.image.licenses: ${LICENSE}
+  org.opencontainers.image.revision: ${COMMIT_HASH}
+  org.opencontainers.image.source: ${REPOSITORY}
+  org.opencontainers.image.url: ${REPOSITORY}
+  org.opencontainers.image.vendor: CNPEM
+  org.opencontainers.image.version: ${COMMIT_HASH}
+
+
 services:
+  epics-modules:
+    image: epics-modules
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: epics-modules
+
   ioc:
-    image: dockerregistry.lnls-sirius.com.br/gas/${IOC_REPO}:${IOC_COMMIT}-rc6-${BASE_VERSION}-${DEBIAN_VERSION}
+    image: dockerregistry.lnls-sirius.com.br/gas/${IOC_REPO}:${IOC_COMMIT}-${BUILD_DATE}
     build:
       context: .
       dockerfile: Dockerfile
       labels:
-        org.opencontainers.image.revision: ${IOC_COMMIT}
-        org.opencontainers.image.source: https://github.com/${IOC_GROUP}/${IOC_REPO}.git
+        <<: *default-labels
       args:
-        BASE_VERSION: ${BASE_VERSION}
         IOC_COMMIT: ${IOC_COMMIT}
-        DEBIAN_VERSION: ${DEBIAN_VERSION}
         IOC_GROUP: ${IOC_GROUP}
         IOC_REPO: ${IOC_REPO}
-        SYNAPPS_VERSION: ${SYNAPPS_VERSION}

@@ -1,14 +1,15 @@
-Docker image for the Rohde&Schwarz SMA and SMB Signal Generator EPICS IOC
-==================================================================
+# Docker image for the Rohde&Schwarz SMA and SMB Signal Generator EPICS IOC
 
 This repository contains the Dockerfile used to create the Docker image with the
-[EPICS IOC for the Rohde & Schwarz SMX](https://github.com/lnls-dig/rssmx100a-epics-ioc).
+[EPICS IOC for the Rohde & Schwarz SMX](https://github.com/lnls-sirius/rssmx100a-epics-ioc).
 
 ## Running the IOC
 
 The simples way to run the IOC is to run:
 
-    docker run --rm -it --net host lnlsdig/rssmx100a-epics-ioc -i IPADDR
+```
+docker run --rm -it --net host lnlsdig/rssmx100a-epics-ioc -i IPADDR
+```
 
 where `IPADDR` is the IP address of the device to connect to. The options you
 can specify (after `lnlsdig/rssmx100a-epics-ioc`):
@@ -22,7 +23,9 @@ can specify (after `lnlsdig/rssmx100a-epics-ioc`):
 If you want to create a persistent container to run the IOC, you can run a
 command similar to:
 
-    docker run -it --net host --restart always --name CONTAINER_NAME lnlsdig/rssmx100a-epics-ioc -i IPADDR
+```
+docker run -it --net host --restart always --name CONTAINER_NAME lnlsdig/rssmx100a-epics-ioc -i IPADDR
+```
 
 where `IPADDR` is as in the previous section and `CONTAINER_NAME` is the name
 given to the container. You can also use the same options as described in the
@@ -31,8 +34,10 @@ previous section.
 ## Building the Image Manually
 
 To build the image locally without downloading it from Docker Hub, clone the
-repository and run the `docker build` command:
+repository and run the `docker-compose build` command:
 
-    git clone https://github.com/lnls-dig/docker-rssmx100a-epics-ioc
-    docker build -t lnlsdig/rssmx100a-epics-ioc docker-rssmx100a-epics-ioc
-
+```command
+    git clone https://github.com/lnls-sirius/docker-rssmx100a-epics-ioc
+    cd docker-rssmx100a-epics-ioc
+    docker-compose build
+```
