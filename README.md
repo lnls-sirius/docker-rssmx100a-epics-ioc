@@ -37,7 +37,12 @@ To build the image locally without downloading it from Docker Hub, clone the
 repository and run the `docker-compose build` command:
 
 ```command
-    git clone https://github.com/lnls-sirius/docker-rssmx100a-epics-ioc
-    cd docker-rssmx100a-epics-ioc
-    docker-compose build
+git clone https://github.com/lnls-sirius/docker-rssmx100a-epics-ioc
+cd docker-rssmx100a-epics-ioc
+
+# Update .env
+./scripts/config.sh
+
+# build the image
+docker-compose build ioc
 ```
