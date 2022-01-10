@@ -10,7 +10,8 @@ x-environment:
   org.opencontainers.image.url: ${REPOSITORY}
   org.opencontainers.image.vendor: CNPEM
   org.opencontainers.image.version: ${COMMIT_HASH}
-
+  br.cnpem.ioc.commit: ${IOC_COMMIT}
+  br.cnpem.ioc.url: https://github.com/${IOC_GROUP}/${IOC_REPO}
 
 services:
   epics-modules:
